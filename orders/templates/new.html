@@ -1,0 +1,298 @@
+{% extends 'layout.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %} Add Orders {% endblock %}
+
+{% block body %}
+
+                <section>
+					<div class="section-body">
+						<div class="row">
+
+							<!-- BEGIN  - FORM -->
+							<div class="col-lg-12">
+								<div class="card">
+									<div class="card-head style-primary">
+										<header>Add Purchase Order</header>
+										<div class="tools">
+											<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+											<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+										</div>
+									</div>
+									<div class="card-body">
+
+										<form class="form" role="form" action="" method="post"> {% csrf_token %}
+
+											<div class="row">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ form.order_number| add_class:'form-control' | attr:'rows:2'}}
+															<label for="regular2">Order</label>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group floating-label">
+															{{ form.purchase_order | add_class:'form-control' | attr:'rows:2' }}
+															<label for="regular2">Purchase Order Number</label>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ form.order_received | add_class:'form-control'}}
+															<label for="select2">RCVD</label>
+														</div>
+													</div>
+												</div>
+												<hr>
+
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ form.bill_address | add_class:'form-control' | attr:'rows:2'}}
+															<label for="regular2">Bill To Address</label>
+															<button>Bill To</button>
+														</div>
+														<div>
+															<input type="text" style="width: 100%;height: 50px; text-align: center;" value="" disabled="">
+															<!--<label for="regular2">Bill To Number</label>-->
+														</div>													
+													</div>
+													<div class="col-sm-3">
+														
+														<div class="form-group floating-label">
+															{{ form.ship_address | add_class:'form-control' | attr:'rows:2'}}
+															<label for="textarea2">Ship To Address</label>
+															<button>Ship To</button>
+														</div>
+														<div>
+															<input type="text" style="width: 100%;height: 50px; text-align: center;" value="" disabled="">
+															<!--<label for="regular2">Ship To Number</label>-->
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															{{ form.required_date | add_class:'form-control' | attr:'type:date'}}
+															<label for="textarea2">Required Date</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.order_type | add_class:'form-control' | attr:'rows:2'}}
+															<label for="textarea2">Order Type</label>
+														</div>
+														<div class="form-group">
+															{{ form.ordered_date | add_class:'form-control' | attr:'type:date'}}
+															<label for="textarea2">Order Date</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.price_method | add_class:'form-control'}}
+															<label for="select2">Price Method</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.price_details | add_class:'form-control' | attr:'rows:2'}}
+															<label for="textarea2">Price Details</label>
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group floating-label">
+															{{ form.freight| add_class:'form-control' | attr:'rows:2' }}
+															<label for="textarea2">Freight Option</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.kit_details| add_class:'form-control' | attr:'rows:2' }}
+															<label for="textarea2">Kit Details</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.quote | add_class:'form-control' | attr:'rows:2'}}
+															<label for="textarea2">Quote</label>
+														</div>
+														<div class="form-group floating-label">
+															{{ form.contract | add_class:'form-control' }}
+															<label for="regular2">Contract Number</label>
+														</div>
+													</div>
+
+												</div>
+
+												<div class="row">
+													<div class="col-md-12">
+															<hr>
+															<label class="radio-inline radio-styled col-sm-2">
+																<b>Order Status :</b>
+															</label>
+															<div class="col-md-10">
+
+		                                                        {% for radio in form.order_status %}
+		                                                            <label class="radio-inline radio-styled">
+		                                                                {{ radio }}
+		                                                            </label>
+		                                                        {% endfor %}
+
+															</div>
+													</div>
+												</div>
+												<hr>
+												<div class="card">
+													<div class="card-head style-primary">
+														<header>Shipping Details</header>
+														<div class="tools">
+															<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+															<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+														</div>
+													</div>
+													<div class="card-body">
+														<div class="row">
+															<div class="col-sm-4">
+																	<div class="form-group floating-label">
+																		{{ form.ship_via | add_class:'form-control' | attr:'rows:2'}}
+																		<label for="textarea2">Ship Via</label>
+																	</div>
+																	<div class="form-group floating-label">
+																		{{ form.F_O_B | add_class:'form-control' | attr:'rows:2' }}
+																		<label for="textarea2">F.O.B</label>
+																	</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group floating-label">
+																	{{ form.attention | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Attention</label>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group floating-label">
+																	{{ form.ship_instructions | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Shipping Instruction</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-head style-primary">
+														<header>Contact Details</header>
+														<div class="tools">
+															<a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
+															<a class="btn btn-icon-toggle btn-close"><i class="md md-close"></i></a>
+														</div>
+													</div>
+													<div class="card-body">
+														<div class="row">
+															<div class="col-sm-4">
+																<div class="form-group floating-label">
+																	{{ form.warehouse | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Warehouse</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.sales_rep | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Sales Rep</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.product_line | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Product Lines</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.COS_project | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">COS/Project</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.sales_account | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Sales Account</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.order_value | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Order Value</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.surcharge | add_class:'form-control'}}
+																	<label for="select2">Surcharge</label>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group floating-label">
+																	{{ form.staus_number | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Status Number (How many completed)</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.contact_name | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Contact Name</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.phone_number | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Phone Number</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.ship_cond | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Ship Condition</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.credit_control | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">Credit Control</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.A_R_credit | add_class:'form-control'}}
+																	<label for="select2">A/R Credit</label>
+																</div>
+															</div>
+															<div class="col-sm-4">
+																<div class="form-group floating-label">
+																	{{ form.ASN_contact | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">ASN Contact</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.ASN_title | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">ASN Title</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.fax_ASN | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="select2">FAX ASN</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.ASN_fax_num | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="regular2">ASN FAX #</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.email_ASN | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="select2">Email ASN</label>
+																</div>
+																<div class="form-group floating-label">
+																	{{ form.email_addr | add_class:'form-control' | attr:'rows:2'}}
+																	<label for="textarea2">Email Address</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<hr>
+												<div class="row">
+															<div class="col-sm-3">
+																<button><a href="{% url 'newline' %}" >Line Details</button>
+															</div>
+															<div class="col-sm-3">
+															<button>Update&nbsp;(F6)</button>&emsp;&emsp;&emsp;<button>Exit&nbsp;(F1)</button>
+															</div>
+															<div class="col-sm-3">
+																<div class="card-actionbar-row">
+																	<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+																</div>
+															</div>
+															<div class="col-sm-3">
+																<p><button>Print Order Acknowledgement&nbsp;(F7)</button></p>
+																<p><button>Print Sales Order&nbsp;(F10)</button></p>
+															</div>
+												</div>
+											</div>
+										</form>
+									</div><!--end .card-body -->
+								</div><!--end .card -->
+							</div><!--end .col -->
+							<!-- END FORM - TIME ON SITE -->
+
+						</div><!--end .row -->
+						
+					</div><!--end .section-body -->
+				</section>
+
+{% endblock %}
