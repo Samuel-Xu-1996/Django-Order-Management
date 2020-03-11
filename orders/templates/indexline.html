@@ -21,6 +21,7 @@
                                             <table id="datatable2" class="table order-column hover">
                                                 <thead>
                                                     <tr>
+                                                        <th>Line ID</th>
                                                         <th>Order Number</th>
                                                         <th>Customer Number</th>
                                                         <th>Customer Name</th>
@@ -28,12 +29,12 @@
                                                         <th>Line Number</th>
                                                         <th>Quantity in Order</th>
                                                         <th>Required Date</th>
-                                                        <th width="150px">Buttons</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {% for line in lines %}
                                                         <tr class="gradeX">
+                                                            <td>{{ line.id }}</td>
                                                             <td>{{ line.order_number }}</td>
                                                             <td>{{ line.customer_number }}</td>
                                                             <td>{{ line.customer_name }}</td>

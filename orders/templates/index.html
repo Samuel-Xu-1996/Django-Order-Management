@@ -21,6 +21,7 @@
                                             <table id="datatable2" class="table order-column hover">
                                                 <thead>
                                                     <tr>
+                                                        <th>Order ID</th>
                                                         <th>P/O</th>
                                                         <th>Bill Address</th>
                                                         <th>Ship Address</th>
@@ -35,6 +36,7 @@
                                                 <tbody>
                                                     {% for order in orders %}
                                                         <tr class="gradeX">
+                                                            <td>{{ order.id }}</td>
                                                             <td>{{ order.purchase_order }}</td>
                                                             <td>{{ order.bill_address }}</td>
                                                             <td>{{ order.ship_address }}</td>

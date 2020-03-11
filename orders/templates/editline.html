@@ -21,7 +21,7 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form class="form" role="form" action="/order/indexline" method="post"> {% csrf_token %}
+						<form class="form" role="form" action="" method="post"> {% csrf_token %}
 
 							<div class="row">
 								<div class="row">
@@ -129,13 +129,13 @@
 									<div class="col-sm-2">
 										<div class="form-group floating-label">
 											{{ line.unit_price| add_class:'form-control' | attr:'rows:2'}}
-											<label for="textarea2">Unit Price</label>
+											<label for="regular2">Unit Price</label>
 										</div>
 										<p><button>Line Pricing (F6)</button></p>
 									</div>
 									<div class="col-sm-1">
 										<div class="form-group floating-label">
-											{{ line.stat| add_class:'form-control' | attr:'rows:2'}}
+											{{ line.stat| add_class:'form-control'}}
 											<label for="select2">Status</label>
 										</div>
 									</div>
@@ -143,13 +143,13 @@
 								<div class="row">
 									<div class="col-sm-3">
 										<div class="form-group floating-label">
-											{{ line.ship_tolerance_min| add_class:'form-control' | attr:'rows:2'}}
+											{{ line.ship_tolerance_min| add_class:'form-control'}}
 											<label for="regular2">Minimum Shipping Tolerance</label>
 										</div>
 									</div>
 									<div class="col-sm-3">
 										<div class="form-group floating-label">
-											{{ line.ship_tolerance_max| add_class:'form-control' | attr:'rows:2'}}
+											{{ line.ship_tolerance_max| add_class:'form-control'}}
 											<label for="regular2">Maximum Shipping Tolerance</label>
 										</div>
 									</div>
@@ -167,17 +167,18 @@
 											<label for="regular2">Price Book (F4)</label>
 										</div>
 									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card-actionbar-row">
+											<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
+										</div>
+									</div>
 								</div>								
 							</div>
 						</form>
 					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="card-actionbar-row">
-								<input type="submit" class="btn btn-flat btn-primary ink-reaction" value="SUBMIT">
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div><!--end .col -->
 			<!-- END FORM - TIME ON SITE -->

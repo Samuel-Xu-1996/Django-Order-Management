@@ -53,6 +53,8 @@ class OrderForm(ModelForm):
     email_ASN = forms.ChoiceField(choices=OPTIONS)
     order_type = forms.ChoiceField(choices=OPTIONS5)
 
+
+
     class Meta:
         model = Order
         fields = ['purchase_order','bill_address','ship_address','required_date','freight','quote','contract','order_status',
@@ -61,4 +63,6 @@ class OrderForm(ModelForm):
                   'ship_instructions', 'F_O_B', 'warehouse', 'sales_rep', 'product_line', 'COS_project', 'sales_account',
                   'order_value', 'staus_number', 'contact_name', 'phone_number', 'ship_cond', 'credit_control', 'ASN_contact',
                   'ASN_title', 'ASN_fax_num', 'email_addr']
+
+
     
